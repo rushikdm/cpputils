@@ -28,15 +28,15 @@ typedef vector<string>    vec_s;
 #define F first
 #define S second
 
-class CodeChef {
+class A {
 	public:
-	CodeChef() {
+	A() {
 	}
 	
 	void solve() {
 	}
 
-	~CodeChef() {
+	~A() {
 	}
 };
 		
@@ -45,8 +45,8 @@ int main() {
 	int t;
 	cin >> t;
 	while(t--) {
-	CodeChef cc;
-	cc.solve();
+	  A a;
+	  a.solve();
 	}
 	
 	return 0;
