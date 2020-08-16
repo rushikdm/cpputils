@@ -1,24 +1,28 @@
 #ifndef RUSHI_DBG_H
 #define RUSHI_DBG_H
 
-#include <fstream> 
+#include <iostream>
 
-std::ofstream dbgos("debug.txt", std::ios_base::app);
+#ifdef DEBUG
 
+#define DBG(msg) std::cout << "[Line:" << __LINE__ <<"] " << #msg << " = " << msg << "\n";
+#define DBG_M(msg) std::cout << "[Line:" << __LINE__ << "] " << msg << "\n";
+#define DBG_V(msg, ...) std::cout << "[Line:" << __LINE__ << "] " << "[" << #msg << ", " << #__VA_ARGS__ << "] = "; dbg_1(msg, __VA_ARGS__);
 
-#define DBG(msg) dbgos << "[Line:" << __LINE__ <<"] " << #msg << " = " << msg << "\n";
+#else
+	
+#define DBG(msg) 
+#define DBG_M(msg) 
+#define DBG_V(msg)
 
-#define DBG_M(msg) dbgos << "[Line:" << __LINE__ << "] " << msg << "\n";
+#endif
 
-#define DBG_V(msg, ...) dbgos << "[Line:" << __LINE__ << "] " << "[" << #msg << ", " << #__VA_ARGS__ << "] = "; dbg_1(msg, __VA_ARGS__);
-
-void dbg_1() {dbgos << "\n"; };
+void dbg_1() {std::cout << "\n"; };
 
 template <typename T, typename... Types>
 void dbg_1(T var1, Types... var2) {
-	dbgos << var1 << " ";
+	std::cout << var1 << " ";
 	dbg_1(var2...);
 }
 
 #endif
-
