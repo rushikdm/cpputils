@@ -15,11 +15,40 @@ typedef vector<string>    vec_s;
 
 #define FOR(i, b, e)  for(int i=(b); i < (e); ++i)
 #define REP(i, n)     for(int i = 0; i < (n); ++i)
-
+#define ll long long
 #define sort_all(c) sort(c.begin(), c.end());
 #define PB push_back
 #define F first
 #define S second
+
+// Modular Arithmatic
+const long long MOD = 10e8+7;
+vec_ll fact;
+vec_ll ifact;
+const int sz = 5001;
+fact.resize(sz);
+ifact.resize(sz);
+  
+fact[0] = fact[1] = 1;
+for(int i = 2; i < sz; ++i)
+  fact[i] = (i * fact[i-1]) % MOD;
+    
+vec_ll imod(sz);
+imod[0] = imod[1] = 1;
+for(int i = 2; i < sz; ++i)
+  imod[i] = (MOD - ((MOD/i) * imod[MOD%i]) % MOD) % MOD;
+    
+ifact[0] = ifact[1] = 1;
+for(int i = 2; i < sz; ++i)
+  ifact[i] = (imod[i] * ifact[i-1]) % MOD;
+	
+ll NCR(const ll n1, const ll r)
+{
+  ll ans = fact[n1];
+  ans = (ans * ifact[r]) % MOD;
+  ans = (ans * ifact[n1-r]) % MOD;
+  return ans;
+}
 
 template <typename T>
 class Matrix {
