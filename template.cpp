@@ -10,16 +10,7 @@
 using namespace std;
 
 #define FASTIO ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-
-typedef pair<int, int> pr_ii;
-
-typedef vector<int>       vec_i;
-typedef vector<long long> vec_ll;
-typedef vector<float>     vec_f;
-typedef vector<double>    vec_d;
-typedef vector<char>      vec_c;
-typedef vector<string>    vec_s;
-
+#define ll long long
 #define FOR(i, b, e)  for(int i=(b); i < (e); ++i)
 #define REP(i, n)     for(int i = 0; i < (n); ++i)
 
@@ -28,15 +19,24 @@ typedef vector<string>    vec_s;
 #define F first
 #define S second
 
-class A {
+typedef pair<int, int> pr_ii;
+typedef pair<long long, long long> pr_ll;
+typedef vector<int>       vec_i;
+typedef vector<long long> vec_ll;
+
+class A 
+{
 	public:
-	A() {
+	A() 
+	{
 	}
 	
-	void solve() {
+	void solve() 
+	{
 	}
-
-	~A() {
+	
+	void write()
+	{
 	}
 };
 		
@@ -44,9 +44,11 @@ int main() {
 	FASTIO;
 	int t;
 	cin >> t;
-	while(t--) {
+	while(t--) 
+	{
 	  A a;
 	  a.solve();
+	  a.write();
 	}
 	
 	return 0;
